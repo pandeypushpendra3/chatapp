@@ -3,7 +3,7 @@ import {React,useState,useEffect} from "react";
 
 
 function App() {
-const initStat ={username:"",email:"", password:""};
+const initStat ={username:"",email:"", password:"" ,primary_products:"",secondary_product_service_offered:"",business_area:""};
 const [formvalue,setFormValue] = useState(initStat);
 const [formError,setFormError] = useState({});
 const [isSubmit,setSubmit] = useState(false);
@@ -86,11 +86,11 @@ return error
   {/* <p>{formError.email}</p> */}
   <div className="field">
   <label>Age of establishment</label>
-    <input type="number" placeholder="Age of establishment"  onChange={handleChange}/>
+    <input type="number" min="1" max="100" placeholder="Age of establishment"  onChange={handleChange}/>
 </div>
  <div className="field">
   <label>Primary Products/Services offfered</label>
-    <input type="text" placeholder="Primary Products/Services offfered"  onChange={handleChange}/>
+    <input type="text" name="primary_products" value={formvalue.primary_products} placeholder="Primary Products/Services offfered"  onChange={handleChange}/>
 </div>
 <div className="field">
   <label>Offfered to</label>
@@ -103,15 +103,15 @@ return error
 </div>
  <div className="field">
   <label>Secondary Products/Services offfered</label>
-    <input type="text" placeholder="Secondary Products/Services offfered"  onChange={handleChange}/>
+    <input type="text" placeholder="Secondary Products/Services offfered" name="secondary_product_service_offered" value={formvalue.secondary_product_service_offered} onChange={handleChange}/>
 </div>
 <div className="field">
   <label>Processed Products</label>
-    <input type="text" placeholder="Processed Products"  onChange={handleChange}/>
+    <input type="text" placeholder="Processed Products"  name="processed_products" value={formvalue.processed_products} onChange={handleChange}/>
 </div>
 <div className="field">
   <label>Years of relevant experience in this field</label>
-    <input type="number" placeholder="Relevant Experience"  onChange={handleChange}/>
+    <input type="number" name="relevant_experience" value={formvalue.relevant_experience} placeholder="Relevant Experience"  onChange={handleChange}/>
 </div>
 <div className="field">
   <label>Skill training</label>
@@ -160,7 +160,7 @@ return error
 
   <div className="field">
   <label>Name of the area</label>
-    <input type="number" placeholder="business area"/>
+    <input type="number" name="business_area" value={formvalue.business_area} placeholder="Business area" />
 </div>
 <div className="field">
   <label>Locality of business</label>
@@ -241,9 +241,9 @@ return error
 <div className="field">
   <label>Competition</label>
   <select id="competition" name="Competition" >
-<option value="No similar good/service provider in this locality">No similar good/service provider in this locality</option>
-<option value="Only a few similar goods/service providers in this locality">Only a few similar goods/service providers in this locality</option>
-<option value="Many similar good/service providers in this locality">Many similar good/service providers in this locality</option>
+      <option value="No similar good/service provider in this locality">No similar good/service provider in this locality</option>
+      <option value="Only a few similar goods/service providers in this locality">Only a few similar goods/service providers in this locality</option>
+      <option value="Many similar good/service providers in this locality">Many similar good/service providers in this locality</option>
 
   </select>
 </div>
@@ -275,29 +275,31 @@ return error
       <option value="other allied revenue streams">other allied revenue streams</option>
     </select>
 </div>
-
-
-
-
-
-
-
-
 {/* <button className="fluid ui button blue" >Submit</button> */}
 </div>
      </form>
     </div>
     <div className="container-right">
-    <p>My name is {formvalue.username}</p>      
+    <p>{formvalue.username} is looking to {/*{business_stage} */}their business of {/*{business_idea}*/}</p> 
+    <p>This enterprise has been operational since {/*{age_of_establishment}*/}years and has been serving its customers since then</p>     
+<p>This establishment offers products/services like {formvalue.primary_products} to {/*{$offered_to}*/}</p>
+<p>Other products of the enterprise shall include-{/*{processed_}*/}</p>
+<p>In addition, the enterprise shall also be invloved in {/*{secondary_product_service_offered}*/}</p>
+<p>other products of the enterprise shall include in{/*{processed_products}*/}</p>
+<p>{formvalue.username} has relevant experience of {/*{relevant_experience }*/} years in the field </p>
+<p>The entrepreneur {/*{skill_training}*/} in this field of work</p>
+<p>The enterprise is uniquely positioned because of its</p>
+<p>The {/*{establishment_type}*/} is located in {/*{business_locality}*/} area of{/*{city}*/} in a {/*{infra_ownership}*/} property</p>
+<p>The size of the establishment is{/*{establishment_area}*/}sq ft</p>
+<p>This locality is selected because of {/*{reason_for_location}*/}</p>
+<p>{/*{market_research}*/} and the range of products and target market has been identified after that.<br/>The enterprise shall focus on offering its products/services to {/*{primary_market}*/}markets<br/>Our customers shall include -{/*{customers}*/}<br/>The nature of the business is such that we expect {/*{$seasonality}*/}.Regarding competition, there are {/*{$competition}*/}.The enterprise shall procure goods/raw materials from {/*{$suppliers}*/}.Our marketing avenues to reach the targeted customers shall include- {/*{$marketing_avenues}*/}.The various foreseeable aveneus of scaling up and growing the business in the foreseeable future include {/*{scaleup_potential}*/}
+</p>
 
 
 
-
+</div>
     </div>
-    </div>
-    
-   
-  );
+    );
 }
 
 export default App;

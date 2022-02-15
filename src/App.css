@@ -11,11 +11,11 @@ margin:auto;
 .container-left{
   
   border:1px solid red;
-  flex-basis: 50%;
+  width:50%;
 
 }
 .container-right{
-  flex-basis: 50%;
+  width: 50%;
   border:1px solid green;
   
 }
