@@ -1,3 +1,7 @@
+
+body{
+  background:#EEEEEE;
+}
 .main-container{
   width:80%;
  
@@ -6,6 +10,7 @@ margin:10px auto;
   display:flex;
   flex-wrap: nowrap;
   justify-content: center;
+background-color: #CFD8DC;
   /* grid-template-columns: auto auto; */
 
 }
@@ -19,11 +24,13 @@ padding:10px;
 
 
  .container-right{
-  padding:40px !important; 
+  padding:80px !important;
+  
   /* background-color: blue;  */
  }
 p{
   font-size:18px;
+  /* color:white */
 }
 span{
   font-size:18px;

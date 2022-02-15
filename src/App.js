@@ -117,14 +117,11 @@ if(!formvalue.username){
   error.username="Username is required";
 
 }
-if(!formvalue.email){
-  error.email="Please Enter a valid Email";
+if(formvalue.age_of_establishment==0 && formvalue.age_of_establishment>100){
+  error.email="Please Enter a valid age between 0 and 100";
 
 }
-if(!formvalue.password){
-  error.password="Password is required";
 
-}
 else if(formvalue.password<4){
   error.password="Password must be contained more than 4 characters";
 
@@ -319,37 +316,51 @@ return (
   <label>Aveneus of scaling up in future</label>
   <Multiselect isObject={false} onRemove={(e)=> {console.log(e)}} onSelect={(e)=> {setScaleUp([e]) }}  options={scaleup_potential} />
 </div>
-{/* <button className="fluid ui button blue" >Submit</button> */}
+
 </div>
      </form>
-    </div>
-    <div className="container-right">
-    <p> <span>{formvalue.username}</span>- is looking to <span>{value}</span> their business of Sewing machine</p> 
-    <p>This enterprise has been operational since <span>{formvalue.age_of_establishment}</span> years and has been serving its customers since then</p>     
-<p>This establishment offers products/services like <span>{formvalue.primary_products}</span> to <span>{offered_to}</span></p>
-<p>In addition, the enterprise shall also be invloved in <span>{formvalue.secondary_product_service_offered}</span></p>
-<p>other products of the enterprise shall include in <span>{formvalue.processed_products}</span></p>
-<p><span>{formvalue.username}</span> has relevant experience of <span>{formvalue.relevant_experience}</span> years in the field </p>
-<p>The entrepreneur <span>{skill_training}</span> in this field of work</p>
-<p>The enterprise is uniquely positioned because of its{select.map((e,i)=>{
-  return (
-<>
-<ul>
-  <span> <ol><p key={i}>{e}</p></ol></span>
-  </ul>
-</>
-)})}</p>
-<p>The <span>{business_locality}</span> is located in  area of <span>{formvalue.business_area}</span> in a <span>{infra_ownership}</span> property</p>
+</div>
 
-<p>The size of the establishment is <span>{formvalue.establishment_area}</span>  sq ft</p>
-<p>This locality is selected because of {reasonLocation.map((e,i)=>{return(
-  <>
-  <ul>
-  <span> <ol><p key={i}>{e}</p></ol></span>
-  </ul>
-  </>
-)})}</p>
-<p><span>{market_search}</span> and the range of products and target market has been identified after that.
+
+<div className="container-right">
+    
+    <p> <span>{formvalue.username}</span>- is looking to <span>{value}</span> their business of Sewing machine</p> 
+
+    <p>This enterprise has been operational since <span>{formvalue.age_of_establishment}</span> years and has been serving its customers since then</p>
+
+     <p>This establishment offers products/services like <span>{formvalue.primary_products}</span> to <span>{offered_to}</span></p>
+
+     <p>
+     In addition, the enterprise shall also be invloved in <span>{formvalue.secondary_product_service_offered}</span></p>
+
+     <p>other products of the enterprise shall include in <span>{formvalue.processed_products}</span></p>
+
+     <p><span>{formvalue.username}</span> has relevant experience of <span>{formvalue.relevant_experience}</span> years in the field </p>
+
+     <p>The entrepreneur <span>{skill_training}</span> in this field of work</p>
+
+     <p>The enterprise is uniquely positioned because of its{select.map((e,i)=>{
+     return (
+      <>
+       <ul>
+         <span> <ol><p key={i}>{e}</p></ol></span>
+        </ul>
+      </>
+      )})}</p>
+
+     <p>The <span>{business_locality}</span> is located in  area of <span>{formvalue.business_area}</span> in a <span>{infra_ownership}</span> property</p>
+
+     <p>The size of the establishment is <span>{formvalue.establishment_area}</span>  sq ft</p>
+
+     <p>This locality is selected because of {reasonLocation.map((e,i)=>{return(
+         <>
+          <ul>
+           <span> <ol key={i}>{e}</ol></span>
+          </ul>
+           </>
+           )})}</p>
+
+<p><span>{market_search}</span> and the range of products and target market has been identified after that.</p>
 
 
 <p>The enterprise shall focus on offering its products/services to <span>{primary_market}</span> markets</p>
@@ -358,29 +369,31 @@ return (
 <p>Our customers shall include -<span>{formvalue.customers}</span> </p>
 
 <p>The nature of the business is such that we expect <span>
-
 {seasonality}</span></p>.
+
 <p>Regarding competition, there are <span>{competition}</span>.</p>
 
 <p>The enterprise shall procure goods/raw materials from <span>{formvalue.suppliers}</span></p>.
+
 <p>Our marketing avenues to reach the targeted customers shall include- {market_search.map((e,i)=>{return(
-  <>
-  <ul>
-  <span> <ol><p key={i}>{e}</p></ol></span>
-  </ul>
-  </>
-)})}.</p>
+       <>
+      <ul>
+       <span> <ol><p key={i}>{e}</p></ol></span>
+      </ul>
+       </>
+     )})}.</p>
+
 <p>The various foreseeable aveneus of scaling up and growing the business in the foreseeable future include {scale_avenues.map((e,i)=>{return(
-  <>
-  <ul>
-  <span> <ol><p key={i}>{e}</p></ol></span>
-  </ul>
+    <>
+     <ul>
+       <span> <ol><p key={i}>{e}</p></ol></span>
+      </ul>
    
-  </>
-)})}
-</p></p>
+     </>
+     )})}
+</p>
 
-
+<button className="fluid ui button blue" >Submit</button>
 
 </div>
     </div>
