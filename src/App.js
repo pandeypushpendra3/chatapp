@@ -170,7 +170,7 @@ return (
     <input type="text" name="primary_products" value={formvalue.primary_products} placeholder="Primary Products/Services offfered"  onChange={handleChange}/>
 </div>
 <div className="field">
-  <label>Offfered to</label>
+  <label>Offered to</label>
   <select id="offered" name="offered_to" value={offered_to} onChange={optionHandleChange1}>
   <option></option>
 <option value="End customers">End customers</option>
@@ -324,11 +324,11 @@ return (
      </form>
     </div>
     <div className="container-right">
-    <p> <span>{formvalue.username}</span>- is looking to <span>{value}</span>their business of business_idea</p> 
-    <p>This enterprise has been operational since <span>{formvalue.age_of_establishment}</span>years and has been serving its customers since then</p>     
+    <p> <span>{formvalue.username}</span>- is looking to <span>{value}</span> their business of business_idea</p> 
+    <p>This enterprise has been operational since <span>{formvalue.age_of_establishment}</span> years and has been serving its customers since then</p>     
 <p>This establishment offers products/services like <span>{formvalue.primary_products}</span> to <span>{offered_to}</span></p>
 <p>In addition, the enterprise shall also be invloved in <span>{formvalue.secondary_product_service_offered}</span></p>
-<p>other products of the enterprise shall include in<span>{formvalue.processed_products}</span></p>
+<p>other products of the enterprise shall include in <span>{formvalue.processed_products}</span></p>
 <p><span>{formvalue.username}</span> has relevant experience of <span>{formvalue.relevant_experience}</span> years in the field </p>
 <p>The entrepreneur <span>{skill_training}</span> in this field of work</p>
 <p>The enterprise is uniquely positioned because of its{select.map((e,i)=>{
@@ -337,8 +337,8 @@ return (
 <span><p key={i}>{e}</p></span>
 </>
 )})}</p>
-<p>The <span>{business_locality}</span>is located in  area of<span>{formvalue.business_area}</span> in a <span>{infra_ownership}</span> property</p>
-<p>The size of the establishment is<span>{formvalue.establishment_area}</span>  sq ft</p>
+<p>The <span>{business_locality}</span> is located in  area of<span>{formvalue.business_area}</span> in a <span>{infra_ownership}</span> property</p>
+<p>The size of the establishment is <span>{formvalue.establishment_area}</span>  sq ft</p>
 <p>This locality is selected because of {reasonLocation.map((e,i)=>{return(
   <>
   <span><p key={i}>{e}</p></span>
