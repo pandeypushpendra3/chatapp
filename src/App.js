@@ -3,7 +3,10 @@ import {React,useState,useEffect} from "react";
 import Multiselect from "multiselect-react-dropdown"
 
 function App() {
-const initStat ={username:"",email:"", password:"" ,primary_products:"",secondary_product_service_offered:"",business_area:"",establishment_area:"",customers:"",suppliers:"",age_of_establishment:""};
+const initStat ={username:"" ,primary_products:"",secondary_product_service_offered:"",business_area:"",establishment_area:"",customers:"",suppliers:"",age_of_establishment:""};
+
+
+
 const initOptionStat=()=>{
   const value="";
   return value;
@@ -78,17 +81,23 @@ const locations=["Nearness to market","Good Footfall","Nearness to source of raw
 const [scaleup_potential,setScaleup_potential] =useState(scaleUp1);
 const [scale_avenues,setScaleUp] = useState([]);
 const[marketstate,setMarketstate] = useState(market);
-// console.log(marketstate)
+
+
+
 const[market_search,setMarket] = useState([])
 const [state,setState]=useState(data);
 const [select,setSelect]= useState([]);
-const handleChange=(e)=>{
-//  console.log(e.target.value);
 
- const {name,value} = e.target;
+
+
+const handleChange=(e)=>{
+const {name,value} = e.target;
  setFormValue({...formvalue,[name]:value})
 console.log(formvalue);
 }
+
+
+
 const handleSubmit=(e)=>{
 e.preventDefault();
 setFormError(validate(formvalue));
@@ -248,7 +257,7 @@ return (
 
 <div className="field">
   <label>Reason for selecting this location</label>
-  <Multiselect isObject={false} onRemove={(e)=> {console.log(e)}} onSelect={(e)=> {setreasonLocation([...reasonLocation,e]) }}  options={location} />
+  <Multiselect isObject={false} onRemove={(e)=> {console.log(e)}} onSelect={(e)=> {setreasonLocation([e]) }}  options={location} />
  </div>
 
 
@@ -315,36 +324,48 @@ return (
      </form>
     </div>
     <div className="container-right">
-    <p> {formvalue.username}- is looking to {value}their business of business_idea</p> 
-    <p>This enterprise has been operational since {formvalue.age_of_establishment}years and has been serving its customers since then</p>     
-<p>This establishment offers products/services like {formvalue.primary_products} to {offered_to}</p>
-<p>In addition, the enterprise shall also be invloved in {formvalue.secondary_product_service_offered}</p>
-<p>other products of the enterprise shall include in{formvalue.processed_products}</p>
-<p>{formvalue.username} has relevant experience of {formvalue.relevant_experience} years in the field </p>
-<p>The entrepreneur {skill_training} in this field of work</p>
+    <p> <span>{formvalue.username}</span>- is looking to <span>{value}</span>their business of business_idea</p> 
+    <p>This enterprise has been operational since <span>{formvalue.age_of_establishment}</span>years and has been serving its customers since then</p>     
+<p>This establishment offers products/services like <span>{formvalue.primary_products}</span> to <span>{offered_to}</span></p>
+<p>In addition, the enterprise shall also be invloved in <span>{formvalue.secondary_product_service_offered}</span></p>
+<p>other products of the enterprise shall include in<span>{formvalue.processed_products}</span></p>
+<p><span>{formvalue.username}</span> has relevant experience of <span>{formvalue.relevant_experience}</span> years in the field </p>
+<p>The entrepreneur <span>{skill_training}</span> in this field of work</p>
 <p>The enterprise is uniquely positioned because of its{select.map((e,i)=>{
   return (
 <>
-<p key={i}>{e}</p>
+<span><p key={i}>{e}</p></span>
 </>
 )})}</p>
-<p>The {business_locality} is located in  area of{formvalue.business_area} in a {infra_ownership} property</p>
-<p>The size of the establishment is{formvalue.establishment_area}sq ft</p>
+<p>The <span>{business_locality}</span>is located in  area of<span>{formvalue.business_area}</span> in a <span>{infra_ownership}</span> property</p>
+<p>The size of the establishment is<span>{formvalue.establishment_area}</span>  sq ft</p>
 <p>This locality is selected because of {reasonLocation.map((e,i)=>{return(
   <>
-    <p key={i}>{e}</p>
+  <span><p key={i}>{e}</p></span>
   </>
 )})}</p>
-<p>{market_search} and the range of products and target market has been identified after that.<br/>The enterprise shall focus on offering its products/services to {primary_market}markets<br/>Our customers shall include -{formvalue.customers}<br/>The nature of the business is such that we expect {seasonality}.Regarding competition, there are {competition}.The enterprise shall procure goods/raw materials from {formvalue.suppliers}.Our marketing avenues to reach the targeted customers shall include- {market_search.map((e,i)=>{return(
+<p><span>{market_search}</span> and the range of products and target market has been identified after that.
+<p>The enterprise shall focus on offering its products/services to <span>{primary_market}</span> markets</p>
+
+<p>Our customers shall include -<span>{formvalue.customers}</span> </p>
+
+<p>The nature of the business is such that we expect <span>
+
+{seasonality}</span></p>.
+<p>Regarding competition, there are <span>{competition}</span>.</p>
+
+<p>The enterprise shall procure goods/raw materials from <span>{formvalue.suppliers}</span></p>.
+<p>Our marketing avenues to reach the targeted customers shall include- {market_search.map((e,i)=>{return(
   <>
-    <p key={i}>{e}</p>
+    <span><p key={i}>{e}</p></span>
   </>
-)})}.The various foreseeable aveneus of scaling up and growing the business in the foreseeable future include {scale_avenues.map((e,i)=>{return(
+)})}.</p>
+<p>The various foreseeable aveneus of scaling up and growing the business in the foreseeable future include {scale_avenues.map((e,i)=>{return(
   <>
-    <p key={i}>{e}</p>
+   <span> <p key={i}>{e}</p></span>
   </>
 )})}
-</p>
+</p></p>
 
 
 
