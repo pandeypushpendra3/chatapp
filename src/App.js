@@ -1,9 +1,9 @@
  import './App.css';
 import {React,useState,useEffect} from "react";
-
+import {multiSelect} from "multiselect-react-dropdown"
 
 function App() {
-const initStat ={username:"",email:"", password:"" ,primary_products:"",secondary_product_service_offered:"",business_area:""};
+const initStat ={username:"",email:"", password:"" ,primary_products:"",secondary_product_service_offered:"",business_area:"",establishment_area:"",customers:"",suppliers:"",age_of_establishment:""};
 const [formvalue,setFormValue] = useState(initStat);
 const [formError,setFormError] = useState({});
 const [isSubmit,setSubmit] = useState(false);
@@ -51,15 +51,9 @@ else if(formvalue.password>10){
 
 }
 return error
-
-
-
 }
 
-
-
-
-  return (
+return (
     <div className="main-container">
  <div className="container-left">
     
@@ -86,7 +80,7 @@ return error
   {/* <p>{formError.email}</p> */}
   <div className="field">
   <label>Age of establishment</label>
-    <input type="number" min="1" max="100" placeholder="Age of establishment"  onChange={handleChange}/>
+    <input type="number" min="1" max="100" name="age_of_establishment" value={formvalue.age_of_establishment} placeholder="Age of establishment"  onChange={handleChange}/>
 </div>
  <div className="field">
   <label>Primary Products/Services offfered</label>
@@ -160,7 +154,8 @@ return error
 
   <div className="field">
   <label>Name of the area</label>
-    <input type="number" name="business_area" value={formvalue.business_area} placeholder="Business area" />
+    <input type="text" name="business_area" 
+    value={formvalue.business_area} placeholder="Business area" onChange={handleChange} />
 </div>
 <div className="field">
   <label>Locality of business</label>
@@ -182,7 +177,9 @@ return error
 <div className="field">
   <label>Establishment area (in square feet)
   <br></br>(Enter 0 if the establishment area is irrelevant)</label>
-  <input type="number" placeholder="Establishment area"/>
+  <input type="number" 
+  name="establishment_area"
+   value={formvalue.establishment_area} placeholder="Establishment area" onChange={handleChange}/>
 </div>
 
 <div className="field">
@@ -225,7 +222,7 @@ return error
 </div>
 <div className="field">
   <label>Customers</label>
-  <input type="text" name="customers" placeholder="Customers"/>
+  <input type="text" name="customers" value ={formvalue.customers} placeholder="Customers" onChange={handleChange}/>
    
 </div>
 <div className="field">
@@ -250,7 +247,7 @@ return error
 
 <div className="field">
 <label>Suppliers</label>
-<input type="text" placeholder="Suppliers"/>
+<input type="text" name="suppliers" value={formvalue.suppliers} placeholder="Suppliers" onChange={handleChange}/>
 </div>
 
 <div className="field">
@@ -280,19 +277,19 @@ return error
      </form>
     </div>
     <div className="container-right">
-    <p>{formvalue.username} is looking to {/*{business_stage} */}their business of {/*{business_idea}*/}</p> 
-    <p>This enterprise has been operational since {/*{age_of_establishment}*/}years and has been serving its customers since then</p>     
+    <p> {formvalue.username}----- is looking to {/*{business_stage} */}their business of {/*{business_idea}*/}</p> 
+    <p>This enterprise has been operational since {formvalue.age_of_establishment}years and has been serving its customers since then</p>     
 <p>This establishment offers products/services like {formvalue.primary_products} to {/*{$offered_to}*/}</p>
 <p>Other products of the enterprise shall include-{/*{processed_}*/}</p>
-<p>In addition, the enterprise shall also be invloved in {/*{secondary_product_service_offered}*/}</p>
-<p>other products of the enterprise shall include in{/*{processed_products}*/}</p>
-<p>{formvalue.username} has relevant experience of {/*{relevant_experience }*/} years in the field </p>
+<p>In addition, the enterprise shall also be invloved in {formvalue.secondary_product_service_offered}</p>
+<p>other products of the enterprise shall include in{formvalue.processed_products}</p>
+<p>{formvalue.username} has relevant experience of {formvalue.relevant_experience} years in the field </p>
 <p>The entrepreneur {/*{skill_training}*/} in this field of work</p>
 <p>The enterprise is uniquely positioned because of its</p>
-<p>The {/*{establishment_type}*/} is located in {/*{business_locality}*/} area of{/*{city}*/} in a {/*{infra_ownership}*/} property</p>
-<p>The size of the establishment is{/*{establishment_area}*/}sq ft</p>
+<p>The {/*{establishment_type}*/} is located in {/*{business_locality}*/} area of{formvalue.business_area} in a {/*{infra_ownership}*/} property</p>
+<p>The size of the establishment is{formvalue.establishment_area}sq ft</p>
 <p>This locality is selected because of {/*{reason_for_location}*/}</p>
-<p>{/*{market_research}*/} and the range of products and target market has been identified after that.<br/>The enterprise shall focus on offering its products/services to {/*{primary_market}*/}markets<br/>Our customers shall include -{/*{customers}*/}<br/>The nature of the business is such that we expect {/*{$seasonality}*/}.Regarding competition, there are {/*{$competition}*/}.The enterprise shall procure goods/raw materials from {/*{$suppliers}*/}.Our marketing avenues to reach the targeted customers shall include- {/*{$marketing_avenues}*/}.The various foreseeable aveneus of scaling up and growing the business in the foreseeable future include {/*{scaleup_potential}*/}
+<p>{/*{market_research}*/} and the range of products and target market has been identified after that.<br/>The enterprise shall focus on offering its products/services to {/*{primary_market}*/}markets<br/>Our customers shall include -{formvalue.customers}<br/>The nature of the business is such that we expect {/*{$seasonality}*/}.Regarding competition, there are {/*{$competition}*/}.The enterprise shall procure goods/raw materials from {formvalue.suppliers}.Our marketing avenues to reach the targeted customers shall include- {/*{$marketing_avenues}*/}.The various foreseeable aveneus of scaling up and growing the business in the foreseeable future include {/*{scaleup_potential}*/}
 </p>
 
 

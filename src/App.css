@@ -10,12 +10,12 @@ margin:auto;
 }
 .container-left{
   
-  border:1px solid red;
+  /* border:1px solid red; */
   width:50%;
 
 }
 .container-right{
   width: 50%;
-  border:1px solid green;
+  /* border:1px solid green; */
   
 }
