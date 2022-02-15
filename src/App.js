@@ -7,10 +7,47 @@ const initStat ={username:"" ,primary_products:"",secondary_product_service_offe
 
 
 
+  
+const [formvalue,setFormValue] = useState(initStat);
+const [formError,setFormError] = useState({});
+const [isSubmit,setSubmit] = useState(false);
+const data =["the entrepreneur's experience in this field",
+"innovative product/service",
+  "high profit margin",
+  "high growth potential",
+  "Superior customer support",
+  "quality and affordable products/service",
+  "high demand in the target market",
+  "abundant supply of raw materials",
+  "wide range of products/services",
+  "robust value-chain of the business",
+"frequency of customer visits"
+]
+// const location=[
+//   {data:""}]
+const market = ["Distribution of marketing material(Pamphlets/flyers)","storefront/business branding","Seasonal discountsand offers","Cross-promotions","Digital Marketing","Word of mouth"]
+const scaleUp1 = ["Increasing the variety of product/service offering.","expanding the current offering to other geographies","Opening more oulets","growing the scale of operations","building value-chain integration","other allied revenue streams"]
+
+const locations=["Nearness to market","Good Footfall","Nearness to source of raw materials","Nearness to targeted customer demographics","Lesser competition around","Access to permit/license of operate","Nearness to suppliers","Affordability","No rental overheads","others such factors"]
+
+ const [location,setLocation]=useState(locations);
+ const [reasonLocation,setreasonLocation]=useState([]);
+
+
+const [scaleup_potential,setScaleup_potential] =useState(scaleUp1);
+const [scale_avenues,setScaleUp] = useState([]);
+const[marketstate,setMarketstate] = useState(market);
+
+
+
+const[market_search,setMarket] = useState([])
+const [state,setState]=useState(data);
+const [select,setSelect]= useState([]);
+
 const initOptionStat=()=>{
   const value="";
   return value;
-}
+   }
 const[value,setValue] = useState(initOptionStat);
 const[offered_to,setOffered_to] = useState(initOptionStat);
 const [skill_training,setSkill_training] = useState((initOptionStat));
@@ -52,43 +89,6 @@ const optionHandleChange6=(e)=>{
   setPrimary_market(e.target.value);
 
 }
-const [formvalue,setFormValue] = useState(initStat);
-const [formError,setFormError] = useState({});
-const [isSubmit,setSubmit] = useState(false);
-const data =["the entrepreneur's experience in this field",
-"innovative product/service",
-  "high profit margin",
-  "high growth potential",
-  "Superior customer support",
-  "quality and affordable products/service",
-  "high demand in the target market",
-  "abundant supply of raw materials",
-  "wide range of products/services",
-  "robust value-chain of the business",
-"frequency of customer visits"
-]
-// const location=[
-//   {data:""}]
-const market=["Distribution of marketing material(Pamphlets/flyers)","storefront/business branding","Seasonal discountsand offers","Cross-promotions","Digital Marketing","Word of mouth"]
-const scaleUp1=["Increasing the variety of product/service offering.","expanding the current offering to other geographies","Opening more oulets","growing the scale of operations","building value-chain integration","other allied revenue streams"]
-
-const locations=["Nearness to market","Good Footfall","Nearness to source of raw materials","Nearness to targeted customer demographics","Lesser competition around","Access to permit/license of operate","Nearness to suppliers","Affordability","No rental overheads","others such factors"]
-
- const [location,setLocation]=useState(locations);
- const [reasonLocation,setreasonLocation]=useState([]);
-
-
-const [scaleup_potential,setScaleup_potential] =useState(scaleUp1);
-const [scale_avenues,setScaleUp] = useState([]);
-const[marketstate,setMarketstate] = useState(market);
-
-
-
-const[market_search,setMarket] = useState([])
-const [state,setState]=useState(data);
-const [select,setSelect]= useState([]);
-
-
 
 const handleChange=(e)=>{
 const {name,value} = e.target;
@@ -312,19 +312,19 @@ return (
 
 <div className="field">
   <label>Market avenues</label>
-  <Multiselect isObject={false} onRemove={(e)=> {console.log(e)}} onSelect={(e)=> {setMarket([...market_search,e]) }}  options={marketstate}  />
+  <Multiselect isObject={false} onRemove={(e)=> {console.log(e)}} onSelect={(e)=> {setMarket([e]) }}  options={marketstate}  />
 </div>
 
 <div className="field">
   <label>Aveneus of scaling up in future</label>
-  <Multiselect isObject={false} onRemove={(e)=> {console.log(e)}} onSelect={(e)=> {setScaleUp([...scale_avenues,e]) }}  options={scaleup_potential} />
+  <Multiselect isObject={false} onRemove={(e)=> {console.log(e)}} onSelect={(e)=> {setScaleUp([e]) }}  options={scaleup_potential} />
 </div>
 {/* <button className="fluid ui button blue" >Submit</button> */}
 </div>
      </form>
     </div>
     <div className="container-right">
-    <p> <span>{formvalue.username}</span>- is looking to <span>{value}</span> their business of business_idea</p> 
+    <p> <span>{formvalue.username}</span>- is looking to <span>{value}</span> their business of Sewing machine</p> 
     <p>This enterprise has been operational since <span>{formvalue.age_of_establishment}</span> years and has been serving its customers since then</p>     
 <p>This establishment offers products/services like <span>{formvalue.primary_products}</span> to <span>{offered_to}</span></p>
 <p>In addition, the enterprise shall also be invloved in <span>{formvalue.secondary_product_service_offered}</span></p>
@@ -334,18 +334,26 @@ return (
 <p>The enterprise is uniquely positioned because of its{select.map((e,i)=>{
   return (
 <>
-<span><p key={i}>{e}</p></span>
+<ul>
+  <span> <ol><p key={i}>{e}</p></ol></span>
+  </ul>
 </>
 )})}</p>
-<p>The <span>{business_locality}</span> is located in  area of<span>{formvalue.business_area}</span> in a <span>{infra_ownership}</span> property</p>
+<p>The <span>{business_locality}</span> is located in  area of <span>{formvalue.business_area}</span> in a <span>{infra_ownership}</span> property</p>
+
 <p>The size of the establishment is <span>{formvalue.establishment_area}</span>  sq ft</p>
 <p>This locality is selected because of {reasonLocation.map((e,i)=>{return(
   <>
-  <span><p key={i}>{e}</p></span>
+  <ul>
+  <span> <ol><p key={i}>{e}</p></ol></span>
+  </ul>
   </>
 )})}</p>
 <p><span>{market_search}</span> and the range of products and target market has been identified after that.
+
+
 <p>The enterprise shall focus on offering its products/services to <span>{primary_market}</span> markets</p>
+
 
 <p>Our customers shall include -<span>{formvalue.customers}</span> </p>
 
@@ -357,12 +365,17 @@ return (
 <p>The enterprise shall procure goods/raw materials from <span>{formvalue.suppliers}</span></p>.
 <p>Our marketing avenues to reach the targeted customers shall include- {market_search.map((e,i)=>{return(
   <>
-    <span><p key={i}>{e}</p></span>
+  <ul>
+  <span> <ol><p key={i}>{e}</p></ol></span>
+  </ul>
   </>
 )})}.</p>
 <p>The various foreseeable aveneus of scaling up and growing the business in the foreseeable future include {scale_avenues.map((e,i)=>{return(
   <>
-   <span> <p key={i}>{e}</p></span>
+  <ul>
+  <span> <ol><p key={i}>{e}</p></ol></span>
+  </ul>
+   
   </>
 )})}
 </p></p>
