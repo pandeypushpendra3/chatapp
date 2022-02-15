@@ -50,11 +50,11 @@ const initOptionStat=()=>{
    }
 const[value,setValue] = useState(initOptionStat);
 const[offered_to,setOffered_to] = useState(initOptionStat);
-const [skill_training,setSkill_training] = useState((initOptionStat));
+const [skill_training,setSkill_training] = useState("No formal skill training");
 const [business_locality,setBusiness_locality] = useState(initOptionStat);
 const [infra_ownership,setInfra_ownership] = useState(initOptionStat);
 
-const [market_research,setMarket_research] = useState(initOptionStat);
+const [market_research,setMarket_research] = useState("Not Conducted");
 
 const [primary_market,setPrimary_market] = useState(initOptionStat);
 const [seasonality,setSeasonality] = useState(initOptionStat);
@@ -360,7 +360,7 @@ return (
            </>
            )})}</p>
 
-<p><span>{market_search}</span> and the range of products and target market has been identified after that.</p>
+<p><span>{market_research}</span> and the range of products and target market has been identified after that.</p>
 
 
 <p>The enterprise shall focus on offering its products/services to <span>{primary_market}</span> markets</p>
