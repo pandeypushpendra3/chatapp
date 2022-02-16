@@ -52,10 +52,10 @@ To deploy this project run
 
 ## Demo
 
-Insert gif or link to demo
+https://letsendorse-taupe.vercel.app/
 
 
 ## Screenshots
+![LetEndorse](https://user-images.githubusercontent.com/86410106/154196213-59e60e12-d4fd-4436-a8d6-740ca6da152e.jpg)
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 
