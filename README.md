@@ -6,14 +6,6 @@ This is a business Form where Users can type and select relevant details fill th
 ## 🛠 Tech Stacks
 ReactJs, CSS, Semantic UI
 
-
-## Tech Stack
-
-**Client:** React, Redux, TailwindCSS
-
-
-
-
 ## Run Locally
 
 Clone the project
